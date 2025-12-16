@@ -1,3 +1,8 @@
+---
+marp: true
+theme: default
+---
+
 # Dashboard taxis
 
 Création d'un dashboard avec des **crud** pour les vehicules et les **conducteurs**.
@@ -20,6 +25,7 @@ connexiondb.php
 
 ```
 
-## Schema de projet
+# Schema de projet
 
 ![](./assets/img/schema_vehicule_crud.png)
+
