@@ -1,25 +1,36 @@
 <?php
 
-define("PATH_PROJET", $_SERVER['DOCUMENT_ROOT']  ."/php-taxis");
+define("PATH_PROJET", $_SERVER['DOCUMENT_ROOT']  . "/php-taxis");
 define("WEB_ROOT", "/php-taxis");
 
-function dg($data) {
+function dg($data)
+{
     echo '<pre style="background-color:black; color:white;padding: 1rem;">';
     var_dump($data);
     echo '</pre>';
 }
 
-function dd($data) {
+function dd($data)
+{
     echo '<pre style="background-color:black; color:white;padding: 1rem;">';
     var_dump($data);
     echo '</pre>';
     die();
 }
 
-function listerVehicules($pdo) {
+function listerVehicules($pdo)
+{
     $sql = "SELECT * FROM vehicule";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $vehicules = $stmt->fetchAll();
     return $vehicules;
+}
+
+function supprimerVehicule($pdo, $id)
+{
+    $stm = $pdo->prepare("DELETE FROM vehicule where id_vehicule = :id");
+    $stm->bindParam(':id', $id, PDO::PARAM_INT);
+    $suppResult = $stm->execute();
+    return $suppResult;
 }

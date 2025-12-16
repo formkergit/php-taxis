@@ -11,6 +11,14 @@
 </head>
 
 <body>
+    <main class="container">
+    <?php
+            if (count($vehiculeArray) === 0 ) :
+                echo '<h3>Aucun vehicule !</h3>';
+                echo '<a href="'.  WEB_ROOT . '/vehicule/add-vehicule.php" role="button">Ajouter un vehicule</a>';
+                die();
+            endif;
+    ?>
     <h1>Liste des vehicules</h1>
     <table>
         <thead>
@@ -36,5 +44,5 @@
         </tbody>
     </table>
 </body>
-
+</main>
 </html>
