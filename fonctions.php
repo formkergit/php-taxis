@@ -34,3 +34,9 @@ function supprimerVehicule($pdo, $id)
     $suppResult = $stm->execute();
     return $suppResult;
 }
+
+function nettoyer($dataParam) {
+    $data = trim($dataParam);
+    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+    return $data;
+}
