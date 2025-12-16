@@ -22,4 +22,4 @@ connexiondb.php
 
 ## Schema de projet
 
-![](./img/schema_vehicule_crud.svg)
+![](./img/schema_vehicule_crud.png)
