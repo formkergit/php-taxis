@@ -20,6 +20,7 @@
             endif;
     ?>
     <h1>Liste des vehicules</h1>
+    <a href="<?= WEB_ROOT . '/vehicule/add-vehicule.php' ?>" role="button">Ajouter un vehicule</a>
     <table>
         <thead>
             <tr>
