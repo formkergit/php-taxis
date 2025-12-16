@@ -27,7 +27,10 @@
                     <td><?= $car['marque']; ?></td>
                     <td><?= $car['modele']; ?></td>
                     <td><?= $car['couleur']; ?></td>
-                    <td><a href="">Edit</a> <a href="">Supprimer</a></td>
+                    <td>
+                        <a href="<?= WEB_ROOT . '/vehicule/edit-vehicule.php?id=' . $car['id_vehicule'] ?>" role="button">Edit</a> 
+                    <a href="<?= WEB_ROOT . '/vehicule/del-vehicule.php?id=' . $car['id_vehicule'] ?>" role="button" onclick="return confirm('Etes vous certain de vouloir supprimer ce vehicule ?');">Supprimer</a>
+                </td>
                 </tr>
             <?php endforeach ?>
         </tbody>

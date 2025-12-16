@@ -1,6 +1,7 @@
 <?php
 
 define("PATH_PROJET", $_SERVER['DOCUMENT_ROOT']  ."/php-taxis");
+define("WEB_ROOT", "/php-taxis");
 
 function dg($data) {
     echo '<pre style="background-color:black; color:white;padding: 1rem;">';
