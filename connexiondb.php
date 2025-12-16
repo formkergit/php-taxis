@@ -3,7 +3,7 @@
 // CONFIG PDO
 // ===============================================
 $host    = 'localhost';
-$db      = 'taxis0';
+$db      = 'taxis';
 $user    = 'root';
 $pass    = '';
 $charset = 'utf8mb4';
