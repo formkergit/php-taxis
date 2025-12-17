@@ -3,4 +3,4 @@ include 'fonctions.php';
 require 'connexiondb.php'; 
 ?>
 
-<a href="./vehicule/list-vehicule.php">Lister les vehicules</a>
+<a href="<?= WEB_ROOT . '/vehicule/list-vehicule.php' ?>">Lister les vehicules</a>
