@@ -20,11 +20,40 @@ function dd($data)
 
 function listerVehicules($pdo)
 {
-    $sql = "SELECT * FROM vehicule";
+    $sql = "SELECT * FROM vehicule ORDER BY id_vehicule DESC";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $vehicules = $stmt->fetchAll();
     return $vehicules;
+}
+
+function getVehicule($pdo, $idParam) {
+    $sql = "SELECT * FROM vehicule WHERE id_vehicule = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':id' => $idParam
+    ]);
+    $vehicule = $stmt->fetch();
+    return $vehicule;
+}
+
+function getLastInsertId($pdo) {
+        $sql = "SELECT LAST_INSERT_ID()";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $last_insert_id = $stmt->fetch();
+        return $last_insert_id;
+}
+
+function ajoutVehicule($pdo,$marqueParam, $modeleParam, $couleurParam, $immatriculationParam)  {
+    $sql = "INSERT INTO vehicule (marque,modele,couleur,immatriculation) VALUES (:marque,:modele,:couleur,:immatriculation)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':marque'          => $marqueParam,
+        ':modele'          => $modeleParam,
+        ':couleur'         => $couleurParam,
+        ':immatriculation' => $immatriculationParam
+    ]);
 }
 
 function supprimerVehicule($pdo, $id)
