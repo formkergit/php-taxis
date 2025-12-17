@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 define("PATH_PROJET", $_SERVER['DOCUMENT_ROOT']  . "/php-taxis");
 define("WEB_ROOT", "/php-taxis");
@@ -54,6 +56,19 @@ function ajoutVehicule($pdo,$marqueParam, $modeleParam, $couleurParam, $immatric
         ':couleur'         => $couleurParam,
         ':immatriculation' => $immatriculationParam
     ]);
+}
+
+function updateVehicule($pdo,$marqueParam, $modeleParam, $couleurParam, $immatriculationParam,$idParam){
+    $sql = "UPDATE vehicule SET marque = :marque, modele = :modele,couleur = :couleur, immatriculation = :immatriculation WHERE id_vehicule = :id";
+    $stmt = $pdo->prepare($sql);
+    $updateBool = $stmt->execute([
+        ':marque'          => $marqueParam,
+        ':modele'          => $modeleParam,
+        ':couleur'         => $couleurParam,
+        ':immatriculation' => $immatriculationParam,
+        ':id'              => $idParam
+    ]);
+    return $updateBool;
 }
 
 function supprimerVehicule($pdo, $id)

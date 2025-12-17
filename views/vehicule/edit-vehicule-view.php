@@ -13,7 +13,7 @@
 <body>
     <main class="container">
         <h1>Editer un vehicule</h1>
-        <form action="" method="POST">
+        <form action="?id=<?= $vehicule['id_vehicule']; ?>" method="POST">
             <div>
                 <label for="marque">Marque</label>
                 <input type="text" name="marque" value="<?= $vehicule['marque']; ?>"  required>
