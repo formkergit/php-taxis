@@ -69,3 +69,11 @@ function nettoyer($dataParam) {
     $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
     return $data;
 }
+
+function getNbLigneTable($pdo,$table) {
+        $sql = "SELECT COUNT(*) FROM `" . $table . "`";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $count = $stmt->fetchColumn();
+        return $count;
+}

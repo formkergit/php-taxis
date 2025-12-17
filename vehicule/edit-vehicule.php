@@ -9,4 +9,5 @@ if (! is_numeric($idEditVehicule)  ) {
 }
 
 $vehicule = getVehicule($pdo,$idEditVehicule);
-dg($vehicule);
+
+include PATH_PROJET . '/views/vehicule/edit-vehicule-view.php';
