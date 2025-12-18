@@ -37,8 +37,8 @@
                     <td><?= $conducteur['nom']; ?></td>
                     <td><?= $conducteur['prenom']; ?></td>
                     <td>
-                        <a href="<?= WEB_ROOT . '/conducteur/edit-conducteur.php?id=' . $car['id_conducteur'] ?>" role="button">Edit</a> 
-                    <a href="<?= WEB_ROOT . '/conducteur/del-conducteur.php?id=' . $car['id_conducteur'] ?>" role="button" onclick="return confirm('Etes vous certain de vouloir supprimer ce conducteur ?');">Supprimer</a>
+                        <a href="<?= WEB_ROOT . '/conducteur/edit-conducteur.php?id=' . $conducteur['id_conducteur'] ?>" role="button">Edit</a> 
+                    <a href="<?= WEB_ROOT . '/conducteur/del-conducteur.php?id=' . $conducteur['id_conducteur'] ?>" role="button" onclick="return confirm('Etes vous certain de vouloir supprimer ce conducteur ?');">Supprimer</a>
                 </td>
                 </tr>
             <?php endforeach ?>
