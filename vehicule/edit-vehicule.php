@@ -5,7 +5,7 @@ require dirname(__DIR__) . '/connexiondb.php';
 $idEditVehicule = $_GET['id'] ?? null;
 
 if (! is_numeric($idEditVehicule)  ) {
-    dd("Cette conference n'existe pas !!!");
+    dd("Ce vehicule n'existe pas !!!");
 }
 
 $vehicule = getVehicule($pdo,$idEditVehicule);
@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     $immatriculation = nettoyer($_POST['immatriculation']);
 
     $testUpdate = updateVehicule($pdo, $marque, $modele, $couleur, $immatriculation,$idEditVehicule);
-    dd($testUpdate);
     
     header("Location: " . WEB_ROOT . "/vehicule/list-vehicule.php");
     exit;
