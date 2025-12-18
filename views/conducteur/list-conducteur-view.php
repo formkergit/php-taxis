@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+require PATH_PROJET . '/views/partials/header.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conducteurs</title>
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-</head>
-
-<body>
-    <main class="container">
-    <?php
             if (count($conducteurArray) === 0 ) :
                 echo '<h3>Aucun conducteur !</h3>';
                 echo '<a href="'.  WEB_ROOT . '/conducteur/add-conducteur.php" role="button">Ajouter un conducteur</a>';
@@ -44,6 +32,4 @@
             <?php endforeach ?>
         </tbody>
     </table>
-</body>
-</main>
-</html>
+<?php require PATH_PROJET . '/views/partials/footer.php'; ?>

@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conducteurs</title>
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-</head>
-
-<body>
-    <main class="container">
+<?php require PATH_PROJET . '/views/partials/header.php'; ?>
         <h1>Ajouter un conducteur</h1>
         <form action="" method="POST">
             <div>
@@ -26,6 +13,4 @@
                 <button type="submit" name="envoyer">Ajouter conducteur</button>
             </div>               
         </form>
-    </main>
-</body>
-</html>
+<?php require PATH_PROJET . '/views/partials/footer.php'; ?>
