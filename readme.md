@@ -28,4 +28,3 @@ connexiondb.php
 # Schema de projet
 
 ![](./assets/img/schema_vehicule_crud.png)
-

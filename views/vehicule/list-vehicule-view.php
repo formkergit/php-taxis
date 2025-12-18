@@ -11,6 +11,7 @@ require PATH_PROJET . '/views/partials/header.php';
     <table>
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Marque</th>
                 <th>Modele</th>
                 <th>Couleur</th>
@@ -20,6 +21,7 @@ require PATH_PROJET . '/views/partials/header.php';
         <tbody>
             <?php foreach ($vehiculeArray as $car) : ?>
                 <tr>
+                    <td><?= $car['id_vehicule']; ?></td>
                     <td><?= $car['marque']; ?></td>
                     <td><?= $car['modele']; ?></td>
                     <td><?= $car['couleur']; ?></td>
