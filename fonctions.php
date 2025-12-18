@@ -5,6 +5,8 @@ ini_set('display_errors', 1);
 define("PATH_PROJET", $_SERVER['DOCUMENT_ROOT']  . "/php-taxis");
 define("WEB_ROOT", "/php-taxis");
 
+
+
 function dg($data)
 {
     echo '<pre style="background-color:black; color:white;padding: 1rem;">';
@@ -19,6 +21,10 @@ function dd($data)
     echo '</pre>';
     die();
 }
+
+// ==================
+// === Vehicule ===
+// ==================
 
 function listerVehicules($pdo)
 {
@@ -39,31 +45,23 @@ function getVehicule($pdo, $idParam) {
     return $vehicule;
 }
 
-function getLastInsertId($pdo) {
-        $sql = "SELECT LAST_INSERT_ID()";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        $last_insert_id = $stmt->fetch();
-        return $last_insert_id;
-}
-
-function ajoutVehicule($pdo,$marqueParam, $modeleParam, $couleurParam, $immatriculationParam)  {
+function ajoutVehicule($pdo,$nomParam, $prenomParam, $couleurParam, $immatriculationParam)  {
     $sql = "INSERT INTO vehicule (marque,modele,couleur,immatriculation) VALUES (:marque,:modele,:couleur,:immatriculation)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
-        ':marque'          => $marqueParam,
-        ':modele'          => $modeleParam,
+        ':marque'          => $nomParam,
+        ':modele'          => $prenomParam,
         ':couleur'         => $couleurParam,
         ':immatriculation' => $immatriculationParam
     ]);
 }
 
-function updateVehicule($pdo,$marqueParam, $modeleParam, $couleurParam, $immatriculationParam,$idParam){
+function updateVehicule($pdo,$nomParam, $prenomParam, $couleurParam, $immatriculationParam,$idParam){
     $sql = "UPDATE vehicule SET marque = :marque, modele = :modele,couleur = :couleur, immatriculation = :immatriculation WHERE id_vehicule = :id";
     $stmt = $pdo->prepare($sql);
     $updateBool = $stmt->execute([
-        ':marque'          => $marqueParam,
-        ':modele'          => $modeleParam,
+        ':marque'          => $nomParam,
+        ':modele'          => $prenomParam,
         ':couleur'         => $couleurParam,
         ':immatriculation' => $immatriculationParam,
         ':id'              => $idParam
@@ -79,10 +77,65 @@ function supprimerVehicule($pdo, $id)
     return $suppResult;
 }
 
-function nettoyer($dataParam) {
-    $data = trim($dataParam);
-    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
-    return $data;
+// ==================
+// === CONDUCTEUR ===
+// ==================
+
+function listerConducteurs($pdo)
+{
+    $sql = "SELECT * FROM conducteur ORDER BY id_conducteur DESC";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $conducteurs = $stmt->fetchAll();
+    return $conducteurs;
+}
+
+function getConducteur($pdo, $idParam) {
+    $sql = "SELECT * FROM conducteur WHERE id_conducteur = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':id' => $idParam
+    ]);
+    $conducteur = $stmt->fetch();
+    return $conducteur;
+}
+
+function ajoutConducteur($pdo,$nomParam, $prenomParam)  {
+    $sql = "INSERT INTO conducteur (nom,prenom) VALUES (:nom,:prenom)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':nom'          => $nomParam,
+        ':prenom'          => $prenomParam
+    ]);
+}
+
+function updateConducteur($pdo,$nomParam, $prenomParam,$idParam){
+    $sql = "UPDATE conducteur SET nom = :nom, prenom = :prenom WHERE id_conducteur = :id";
+    $stmt = $pdo->prepare($sql);
+    $updateBool = $stmt->execute([
+        ':nom'          => $nomParam,
+        ':prenom'          => $prenomParam,
+        ':id'              => $idParam
+    ]);
+    return $updateBool;
+}
+
+function supprimerConducteur($pdo, $id)
+{
+    $stm = $pdo->prepare("DELETE FROM conducteur where id_conducteur = :id");
+    $stm->bindParam(':id', $id, PDO::PARAM_INT);
+    $suppResult = $stm->execute();
+    return $suppResult;
+}
+
+// ============================
+
+function getLastInsertId($pdo) {
+        $sql = "SELECT LAST_INSERT_ID()";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $last_insert_id = $stmt->fetch();
+        return $last_insert_id;
 }
 
 function getNbLigneTable($pdo,$table) {
@@ -91,4 +144,10 @@ function getNbLigneTable($pdo,$table) {
         $stmt->execute();
         $count = $stmt->fetchColumn();
         return $count;
+}
+
+function nettoyer($dataParam) {
+    $data = trim($dataParam);
+    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+    return $data;
 }
