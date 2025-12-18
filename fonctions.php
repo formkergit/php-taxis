@@ -104,8 +104,8 @@ function ajoutConducteur($pdo,$nomParam, $prenomParam)  {
     $sql = "INSERT INTO conducteur (nom,prenom) VALUES (:nom,:prenom)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
-        ':nom'          => $nomParam,
-        ':prenom'          => $prenomParam
+        ':nom'       => $nomParam,
+        ':prenom'    => $prenomParam
     ]);
 }
 
