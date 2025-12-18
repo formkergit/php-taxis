@@ -9,3 +9,10 @@
 + Editer un conducteur
 + Refactoriser les pages dans views , sortir l'netete et le footer de chaque page dans un fichier séparé
 + Ajout d'une navbar
+- Revoir la suppression pour un conducteur et vehicule en prenant compte la table d'association
+- Ajout d'exemple de statisique dans la page d'acceuil 
+   - Nombre de véhicules par conducteur
+   - Nombre de véhicules par marque
+   - Nombre de conducteurs par véhicule
+   - Conducteurs sans véhicule 
+   - Véhicules sans conducteur

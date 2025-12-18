@@ -128,6 +128,26 @@ function supprimerConducteur($pdo, $id)
     return $suppResult;
 }
 
+// =============
+// STATISTIQUES
+// =============
+
+function getNbLigneTable($pdo,$table) {
+        $sql = "SELECT COUNT(*) FROM `" . $table . "`";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $count = $stmt->fetchColumn();
+        return $count;
+}
+
+/* Nombre de véhicules par conducteur
+   
+ SELECT marque, COUNT(*) AS nb_vehicules
+FROM vehicule
+GROUP BY marque
+ORDER BY nb_vehicules DESC;  
+*/
+
 // ============================
 
 function getLastInsertId($pdo) {
@@ -136,14 +156,6 @@ function getLastInsertId($pdo) {
         $stmt->execute();
         $last_insert_id = $stmt->fetch();
         return $last_insert_id;
-}
-
-function getNbLigneTable($pdo,$table) {
-        $sql = "SELECT COUNT(*) FROM `" . $table . "`";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        $count = $stmt->fetchColumn();
-        return $count;
 }
 
 function nettoyer($dataParam) {

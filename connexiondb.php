@@ -1,12 +1,20 @@
 <?php
+require 'config.php';
 // ===============================================
 // CONFIG PDO
 // ===============================================
-$host    = 'localhost';
+/*$host    = 'localhost';
 $db      = 'taxis';
 $user    = 'root';
 $pass    = '';
-$charset = 'utf8mb4';
+$charset = 'utf8mb4';*/
+
+$host    = $config['host'];
+$db      = $config['db'];
+$user    = $config['user'];
+$pass    = $config['pass'];
+$charset = $config['charset'];
+
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 

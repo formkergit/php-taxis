@@ -1,4 +1,5 @@
 <?php
+$titleTaxis = "Lste des vehicules";
 require PATH_PROJET . '/views/partials/header.php';
     if (count($vehiculeArray) === 0) :
         echo '<h3>Aucun vehicule !</h3>';

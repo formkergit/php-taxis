@@ -1,4 +1,6 @@
-<?php require PATH_PROJET . '/views/partials/header.php'; ?>
+<?php 
+$titleTaxis = "Edition d'un vehicule";
+require PATH_PROJET . '/views/partials/header.php'; ?>
         <h1>Editer un vehicule</h1>
         <form action="?id=<?= $vehicule['id_vehicule']; ?>" method="POST">
             <div>
