@@ -11,6 +11,5 @@ if (! is_numeric($idSuppconducteur)  ) {
 $suppResultconducteur =supprimerConducteur($pdo,$idSuppconducteur);
 
 if ($suppResultconducteur) {
-    header("Location: " . WEB_ROOT . "/conducteur/list-conducteur.php");
-    exit;
+     redirect('/conducteur/list-conducteur.php');
 }

@@ -18,8 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
 
     $testUpdate = updateVehicule($pdo, $marque, $modele, $couleur, $immatriculation,$idEditVehicule);
     
-    header("Location: " . WEB_ROOT . "/vehicule/list-vehicule.php");
-    exit;
+    redirect('/vehicule/list-vehicule.php');
 }
 
 include PATH_PROJET . '/views/vehicule/edit-vehicule-view.php';

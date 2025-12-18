@@ -163,3 +163,13 @@ function nettoyer($dataParam) {
     $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
     return $data;
 }
+
+function createDatabase($pdo,$sqlfile) {
+    $query = file_get_contents($sqlfile);
+    $pdo->exec($query);
+}
+
+function redirect($url) {
+    header("Location: " . WEB_ROOT . $url);
+    exit;
+}

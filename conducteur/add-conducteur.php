@@ -17,8 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     $conducteurInserted = getLastInsertId($pdo);
 
     if ($conducteurInserted) {
-        header("Location: " . WEB_ROOT . "/conducteur/list-conducteur.php");
-        exit;
+        redirect('/conducteur/list-conducteur.php');
     }
 }
 
